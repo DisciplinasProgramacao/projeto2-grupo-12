@@ -1,3 +1,5 @@
+package app;
+
 import java.util.TreeMap;
 /** 
  * MIT License
@@ -23,6 +25,8 @@ import java.util.TreeMap;
  * SOFTWARE.
  */
 
+import javax.lang.model.element.PackageElement;
+
  /**
   * Classe que encapsula uma árvore binária de buscas
   */
@@ -46,6 +50,8 @@ public class ABB<T> {
         return this.data.get(key);
     }
 
+    
+    
     /**
      * Inclui um novo elemento na árvore com a chave escolhida. Se já existir
      * elemento com esta chave, ignora a ação e retorna false.

@@ -1,3 +1,9 @@
+package app;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+
 /** 
  * MIT License
  *
@@ -128,7 +134,7 @@ public class Grafo {
     public boolean completo(){
        return false;
     }
-
+    
     public Grafo subGrafo(Lista<Integer> vertices){
         Grafo subgrafo = new Grafo("Subgrafo de "+this.nome);
         

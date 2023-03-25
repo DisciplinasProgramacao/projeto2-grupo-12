@@ -2,7 +2,7 @@ package app;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
+
 
 /** 
  * MIT License
@@ -61,7 +61,7 @@ public class Grafo {
 
     public void carregar(String nomeArquivo){
 
-        ArrayList<String> linhasArquivo = new ArrayList<String>();
+        Lista linhasArquivo = new Lista<>();
 
         try {
             FileReader reader = new FileReader(nomeArquivo);
@@ -70,6 +70,7 @@ public class Grafo {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 linhasArquivo.add(line);
+                System.out.println(line);
             }
 
             reader.close();
@@ -120,6 +121,19 @@ public class Grafo {
         return adicionou;
 
     }
+
+    
+    public boolean addAresta(int origem, int destino){
+        boolean adicionou = false;
+        Vertice saida = this.existeVertice(origem);
+        Vertice chegada = this.existeVertice(destino);
+        if(saida!=null && chegada !=null){
+            adicionou = (saida.addAresta(destino)&&chegada.addAresta(origem));
+        }
+        return adicionou;
+
+    }
+
 
 
     public Aresta removeAresta(int origem, int destino){

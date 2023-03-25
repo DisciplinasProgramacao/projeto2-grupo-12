@@ -9,6 +9,11 @@ public final class App {
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        Grafo g = new Grafo("Teste");
+
+        String nomeArquivo = "D:\\Projetos Java\\LPM\\projeto2-grupo-12\\codigo\\grafos\\graph-test-100.txt";
+
+        g.carregar(nomeArquivo);
     }
 }

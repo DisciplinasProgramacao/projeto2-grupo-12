@@ -48,9 +48,15 @@ public class Vertice {
     public int getId(){
         return this.id;
     }
-    
+
+    /**
+     * Adiciona uma aresta não ponderada neste vértice para um destino
+     * @param peso Peso da aresta 
+     * @param dest Vértice de destino
+     * @return TRUE se foi inserida, FALSE caso já existisse e não foi inserida.
+     */
     public boolean addAresta(int destino){
-        return false;
+        return this.arestas.add(destino,new Aresta(1,destino));
     }
 
     /**
@@ -63,10 +69,19 @@ public class Vertice {
         return this.arestas.add(destino,new Aresta(peso, destino));
     }
 
-    
+    /**
+     * Verifica se a aresta ja existe no grafo.
+     * @param destino Destino da aresta a ser verificada.
+     * @return A aresta verificada, ou null se não existir.
+     */
     public Aresta existeAresta(int destino){
+        Aresta aresta = new Aresta(1, destino);
+        for (int i =0; i<arestas.size() ;i++) {
+            if (aresta.destino()==(destino)) {
+                return aresta;
+            }
+        }
         return null;
-
     }
     
     /**

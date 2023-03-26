@@ -31,8 +31,8 @@ import java.io.FileReader;
 /** 
  * Classe básica para um Grafo simples não direcionado.
  */
-public class Grafo {
-    public final String nome;
+public abstract class Grafo {
+    public String nome;
     private ABB<Vertice> vertices;
 
     public static Grafo grafoCompleto(int ordem){
@@ -44,6 +44,7 @@ public class Grafo {
      * (string vazia), recebe o nome genérico "Grafo"
      */
     public Grafo(String nome){
+        
         if(nome.length()==0) 
             this.nome = "Grafo";
         else
@@ -58,27 +59,7 @@ public class Grafo {
     public String nome(){
         return this.nome;
     }
-
-    public void carregar(String nomeArquivo){
-
-        Lista linhasArquivo = new Lista<>();
-
-        try {
-            FileReader reader = new FileReader(nomeArquivo);
-            BufferedReader bufferedReader = new BufferedReader(reader);
-
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                linhasArquivo.add(line);
-                System.out.println(line);
-            }
-
-            reader.close();
-            bufferedReader.close();
-        } catch (Exception e) {
-            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-        }
-    }
+    
 
     public void salvar(String nomeArquivo){
         

@@ -138,7 +138,7 @@ public abstract class Grafo {
     }
     
     public int tamanho(){
-        return Integer.MIN_VALUE;
+        return (ordem() * (ordem() - 1))/2;
     }
 
     public int ordem(){
@@ -146,7 +146,7 @@ public abstract class Grafo {
     }
 
     
-    void DFS(int idVerticeInicio) {
+    public void dfs(int idVerticeInicio) {
         
         boolean visited[] = new boolean[vertices.size()];
 
@@ -169,7 +169,7 @@ public abstract class Grafo {
         }
     }
 
-    public void buscaEmLargura(int idVerticeInicio) {
+    public void bfs(int idVerticeInicio) {
 
         boolean visited[] = new boolean[vertices.size()];
         

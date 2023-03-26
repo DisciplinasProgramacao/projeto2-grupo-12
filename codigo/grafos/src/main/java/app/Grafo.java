@@ -2,6 +2,7 @@ package app;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.*;
 
 
 /** 
@@ -141,7 +142,52 @@ public abstract class Grafo {
     }
 
     public int ordem(){
-        return Integer.MIN_VALUE;
+        return vertices.size();
     }
 
+    
+    void DFS(int idVerticeInicio) {
+        
+        boolean visited[] = new boolean[vertices.size()];
+
+        Lista lista = new Lista();
+
+        visited[idVerticeInicio] = true;
+        lista.add(idVerticeInicio);
+
+        while (!lista.equals(null)) {
+             Object object = lista.remove(0);
+            ABB vArestas[]; 
+            Iterator<Integer> i =  vArestas.allElements(vArestas).[idVerticeInicio].listIterator();
+            while (i.hasNext()) {
+                int n = i.next();
+                if (!visited[n]) {
+                    visited[n] = true;
+                    lista.add(n);
+                }
+            }
+        }
+    }
+
+    public void buscaEmLargura(int idVerticeInicio) {
+
+        boolean visited[] = new boolean[vertices.size()];
+        
+        Lista lista = new Lista();
+
+        visited[idVerticeInicio] = true;
+        lista.add(idVerticeInicio);
+
+        while (!lista.equals(null)) {
+            Object object = lista.remove(0);
+
+            for (int i = 0; i < lista.size(); i++) {
+                if (!visited[i]) {
+                    visited[i] = true;
+                    lista.add(i);
+                }
+            }
+        }
+
+    }
 }

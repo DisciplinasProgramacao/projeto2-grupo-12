@@ -95,7 +95,7 @@ public class Vertice {
   
   
     public int grau(){
-        return Integer.MIN_VALUE;
+        return arestas.size();
     }
 
     /**

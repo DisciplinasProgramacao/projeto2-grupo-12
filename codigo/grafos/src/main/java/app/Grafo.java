@@ -36,8 +36,10 @@ public abstract class Grafo {
     public String nome;
     private ABB<Vertice> vertices;
 
-    public static Grafo grafoCompleto(int ordem){
-        return null;
+    public Grafo grafoCompleto(int ordem){
+        GrafoCompleto g = new GrafoCompleto("nome");
+        Grafo grafoCompleto = g.grafoCompleto(ordem);
+        return grafoCompleto;
     }
 
     /**

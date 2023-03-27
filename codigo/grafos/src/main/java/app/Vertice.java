@@ -48,6 +48,10 @@ public class Vertice {
     public int getId(){
         return this.id;
     }
+    
+    public ABB<Aresta> getArestas() {
+        return this.arestas;
+    } 
 
     /**
      * Adiciona uma aresta não ponderada neste vértice para um destino

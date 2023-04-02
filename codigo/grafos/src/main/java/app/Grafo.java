@@ -190,15 +190,18 @@ public abstract class Grafo {
 
         while (!lista.equals(null)) {
              Object object = lista.remove(0);
-            ABB vArestas[]; 
-            Iterator<Integer> i =  vArestas.allElements(vArestas).[idVerticeInicio].listIterator();
-            while (i.hasNext()) {
-                int n = i.next();
-                if (!visited[n]) {
-                    visited[n] = true;
-                    lista.add(n);
+            Aresta vArestas[]; 
+            vArestas = new Aresta[tamanho()];
+            vArestas = vertices.find(0).getArestas().allElements(vArestas);
+
+            for(int i = 0; i < vArestas.length && vArestas!= null; i++){
+                if (!visited[i]) {
+                    visited[i] = true;
+                    lista.add(vArestas[i]);
                 }
+                vArestas = vertices.find(i).getArestas().allElements(vArestas);
             }
+            
         }
     }
 

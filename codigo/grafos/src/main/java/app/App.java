@@ -10,7 +10,9 @@ public final class App {
      */
     public static void main(String[] args) {
         
-        Grafo g = new Grafo("Teste");
+        GrafoMutavel g = new GrafoMutavel("Teste");
+            
+        
 
         String nomeArquivo = "D:\\Projetos Java\\LPM\\projeto2-grupo-12\\codigo\\grafos\\graph-test-100.txt";
 

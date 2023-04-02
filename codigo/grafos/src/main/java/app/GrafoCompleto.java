@@ -1,30 +1,25 @@
 package app;
 
-import java.util.ArrayList;
-
-public class GrafoCompleto extends Grafo{
+public class GrafoCompleto extends Grafo {
 
     public GrafoCompleto(String nome) {
         super(nome);
-        //this.ordem();
     }
 
-    public Grafo grafoCompleto(int ordem){
+    public Grafo grafoCompleto(int ordem) {
         int numVertices = ordem;
-        ArrayList<Integer> adjLista[] = new ArrayList[numVertices];
+        Grafo g = new Grafo("GrafoCompleto") {
+        };
+
         for (int i = 0; i < numVertices; i++) {
-            adjLista[i] = new ArrayList<Integer>();
+            g.addVertice(i);
             for (int j = 0; j < numVertices; j++) {
                 if (i != j) {
-                    adjLista[i].add(j);
-                }
+                   g.addAresta(i, j);
+                } 
             }
         }
-        Grafo g = new Grafo("GrafoCompleto"){
-            
-        };
         return g;
     }
-    
-   
+
 }

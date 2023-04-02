@@ -68,36 +68,6 @@ public abstract class Grafo {
     }
     
 
-    public void salvar(String nomeArquivo) throws Exception {
-
-        int numVertices = this.vertices.size(); 
-        int somaGraus = 0;
-        Vertice[] arrVertices = new Vertice[numVertices];     // Criando um array de V de tamanho igual a quantidade de V
-        arrVertices = this.vertices.allElements(arrVertices); // preenchendo o array com todos os V
-
-        for (Vertice v : arrVertices) {
-            somaGraus += v.grau();      // somando todos os graus de todos os V
-        }
-
-        int numArestas = somaGraus/2;  // dividindo a soma por 2, para obter o numero de arestas
-   
-        BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo));
-
-        writer.write(numVertices);
-        writer.write(" " + numArestas);
-
-        for (int i=0; i<numArestas; i++) {
-            Aresta[] arrArestas = new Aresta[arrVertices[i].getArestas().size()];  // para cada V, criar um array de tamanho igual ao numero de arestas que aquele V possui
-            arrArestas = arrVertices[i].getArestas().allElements(arrArestas);      // preenchendo o array com todos as arestas daquele V
-            for (int j=0; j<arrVertices[i].getArestas().size(); j++) {       
-                writer.write("\n       " + arrVertices[i] + "      " + arrArestas[j].destino()); // salvando no arquivo o V e o destino da aresta
-            }
-               
-        }    
-
-        writer.close();
-        
-    } 
     
     /**
      * Adiciona um vértice com o id especificado. Ignora a ação e retorna false se já existir
@@ -190,18 +160,17 @@ public abstract class Grafo {
 
         while (!lista.equals(null)) {
              Object object = lista.remove(0);
-            Aresta vArestas[]; 
-            vArestas = new Aresta[tamanho()];
-            vArestas = vertices.find(0).getArestas().allElements(vArestas);
-
-            for(int i = 0; i < vArestas.length && vArestas!= null; i++){
-                if (!visited[i]) {
-                    visited[i] = true;
-                    lista.add(vArestas[i]);
-                }
-                vArestas = vertices.find(i).getArestas().allElements(vArestas);
-            }
-            
+             Aresta vArestas[]; 
+             vArestas = new Aresta[tamanho()];
+             vArestas = vertices.find(0).getArestas().allElements(vArestas);
+ 
+             for(int i = 0; i < vArestas.length && vArestas!= null; i++){
+                 if (!visited[i]) {
+                     visited[i] = true;
+                     lista.add(vArestas[i]);
+                 }
+                 vArestas = vertices.find(i).getArestas().allElements(vArestas);
+             }
         }
     }
 

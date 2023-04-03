@@ -38,7 +38,7 @@ import java.util.*;
  */
 public abstract class Grafo {
     public String nome;
-    private ABB<Vertice> vertices;
+    protected ABB<Vertice> vertices;
 
     public Grafo grafoCompleto(int ordem){
         GrafoCompleto g = new GrafoCompleto("GrafoCompleto");
@@ -68,7 +68,6 @@ public abstract class Grafo {
     }
     
 
-    
     /**
      * Adiciona um vértice com o id especificado. Ignora a ação e retorna false se já existir
      * um vértice com este id
@@ -129,12 +128,22 @@ public abstract class Grafo {
     }
 
 
-
     public Aresta removeAresta(int origem, int destino){
         return null;
     }
 
+
     public Aresta existeAresta(int verticeA, int verticeB){
+        Aresta aresta = new Aresta(1, verticeB);
+        Aresta vArestas[];
+        vArestas = new Aresta[tamanho()];
+        vArestas = vertices.find(0).getArestas().allElements(vArestas);
+        for (int i =0; i<vArestas.length ;i++) {
+            if (aresta.destino()==(verticeB)) {
+                return aresta;
+            }
+            vArestas = vertices.find(i).getArestas().allElements(vArestas);
+        }
        return null;
     }
     
@@ -144,7 +153,12 @@ public abstract class Grafo {
     }
     
     public Grafo subGrafo(Lista<Integer> vertices){
-        Grafo subgrafo = new Grafo("Subgrafo de "+this.nome);
+        Grafo subgrafo = new GrafoNaoDirecionado("Subgrafo de "+ this.nome);
+        for(int i = 0; i < vertices.size(); i++){
+            for(int j = 0; j < vertices.size(); j++){
+                subgrafo.addAresta(i, j);
+            }
+        }
         
         return subgrafo;
     }

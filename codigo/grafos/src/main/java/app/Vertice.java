@@ -123,4 +123,17 @@ public class Vertice {
     public boolean visitado(){
         return this.visitado;
     }
+
+    public Lista<Integer> vizinhos() {
+        Lista<Integer> vizinhos = new Lista();
+        for (int i = 0; i < arestas.size(); i++) {
+            Aresta aresta = arestas.find(i);
+            if (aresta.destino() == id) {
+                vizinhos.add(aresta.destino());
+            } else if (aresta.destino() == id) {
+                vizinhos.add(aresta.destino());
+            }
+        }
+        return vizinhos;
+    }
 }

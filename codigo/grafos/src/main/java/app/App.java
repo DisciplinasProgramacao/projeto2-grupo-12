@@ -10,7 +10,7 @@ public final class App {
      */
     public static void main(String[] args) {
         
-        GrafoMutavel g = new GrafoMutavel("Teste");
+        GrafoMutavel g = new GrafoNaoDirecionado("Teste");
             
         
 

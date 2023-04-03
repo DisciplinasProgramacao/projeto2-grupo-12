@@ -14,14 +14,11 @@ public abstract class GrafoMutavel extends Grafo {
         super(nome);
     }
 
-    // Implementar *Duvida
 
     public boolean addVertice(int id){
         Vertice novo = new Vertice(id);
         return this.vertices.add(id, novo);
     }
-
-    // Implementar *Duvida
 
     public Vertice removeVertice(int id){
         

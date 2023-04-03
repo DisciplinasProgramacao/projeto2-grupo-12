@@ -84,7 +84,16 @@ public abstract class Grafo {
         return null;
     }
 
-    public Vertice existeVertice(int idVertice){
+
+    public Vertice existeVertice(int idVertice) {
+        for (int i = 0; i < vertices.size(); i++) {
+            Vertice vertice = vertices.find(i);
+            if (vertice.getId() == idVertice) {
+                
+                return vertice;
+            }
+        }
+        
         return null;
     }
 

@@ -2,24 +2,19 @@ package app;
 
 public class GrafoCompleto extends Grafo {
 
-    public GrafoCompleto(String nome) {
+    public GrafoCompleto(String nome, int ordem) {
         super(nome);
-    }
-
-    public Grafo grafoCompleto(int ordem) {
         int numVertices = ordem;
-        Grafo g = new Grafo("GrafoCompleto") {
-        };
 
         for (int i = 0; i < numVertices; i++) {
-            g.addVertice(i);
+            Vertice v = new Vertice(i + 1);
             for (int j = 0; j < numVertices; j++) {
                 if (i != j) {
-                   g.addAresta(i, j);
-                } 
+                    v.addAresta(j + 1);
+                }
             }
+            super.vertices.add(v.getId(), v);
         }
-        return g;
-    }
 
+    }
 }

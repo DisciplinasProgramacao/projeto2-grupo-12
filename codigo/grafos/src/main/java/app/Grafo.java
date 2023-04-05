@@ -40,8 +40,7 @@ public abstract class Grafo {
     protected ABB<Vertice> vertices;
 
     public Grafo grafoCompleto(int ordem) {
-        GrafoCompleto g = new GrafoCompleto("GrafoCompleto");
-        Grafo grafoCompleto = g.grafoCompleto(ordem);
+        Grafo grafoCompleto = grafoCompleto(ordem);
         return grafoCompleto;
     }
 
@@ -154,7 +153,7 @@ public abstract class Grafo {
         int numVertices = vertices.size();
 
         for (int i = 0; i < numVertices; i++) {
-            if(vertices.find(i).grau() != ordem()-1)
+            if (vertices.find(i).grau() != ordem() - 1)
                 return false;
         }
         return true;
@@ -181,12 +180,13 @@ public abstract class Grafo {
 
     public void dfs(int idVerticeInicio) {
 
-        boolean visited[] = new boolean[vertices.size()];
+        // boolean visited[] = new boolean[vertices.size()];
 
-        Lista lista = new Lista();
+        Lista<Integer> lista = new Lista<Integer>();
 
-        visited[idVerticeInicio] = true;
-        lista.add(idVerticeInicio);
+        Vertice v = vertices.find(idVerticeInicio);
+        v.visitar();
+        lista.add(v.getId());
 
         while (!lista.equals(null)) {
             Object object = lista.remove(0);

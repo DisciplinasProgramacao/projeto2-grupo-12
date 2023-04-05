@@ -2,9 +2,6 @@ package app;
 
 public class GrafoDirecionado extends GrafoMutavel {
 
-
-    
-
     public GrafoDirecionado(String nome) {
 
         super(nome);
@@ -21,5 +18,5 @@ public class GrafoDirecionado extends GrafoMutavel {
 
         throw new UnsupportedOperationException("Unimplemented method 'removeAresta'");
     }
-    
+
 }

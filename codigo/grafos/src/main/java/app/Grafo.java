@@ -154,11 +154,8 @@ public abstract class Grafo {
         int numVertices = vertices.size();
 
         for (int i = 0; i < numVertices; i++) {
-            for (int j = i + 1; j < numVertices; j++) {
-                if (!Grafo.existeAresta(i, j)) {
-                    return false;
-                }
-            }
+            if(vertices.find(i).grau() != ordem()-1)
+                return false;
         }
         return true;
     }

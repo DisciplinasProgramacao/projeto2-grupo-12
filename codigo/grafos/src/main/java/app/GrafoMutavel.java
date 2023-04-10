@@ -19,6 +19,7 @@ public abstract class GrafoMutavel extends Grafo {
         return this.vertices.add(id, novo);
     }
 
+    @Override
     public Vertice removeVertice(int id) {
 
         return this.vertices.remove(id);

@@ -1,13 +1,5 @@
 package app;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.*;
-
 /** 
  * MIT License
  *
@@ -180,29 +172,36 @@ public abstract class Grafo {
 
     public void dfs(int idVerticeInicio) {
 
-        // boolean visited[] = new boolean[vertices.size()];
-
-        Lista<Integer> lista = new Lista<Integer>();
-
+        Lista<Vertice> listaV = new Lista<Vertice>();
+        Lista<Aresta> listaA = new Lista<Aresta>();
         Vertice v = vertices.find(idVerticeInicio);
-        v.visitar();
-        lista.add(v.getId());
+        Aresta vArestas[];
+        vArestas = new Aresta[tamanho()];
+        listaV.add(v);
+        Vertice verticeAtual = v;
+        for (int i = 0; i < vertices.size(); i++) {
+            if (verticeAtual.vizinhos().size() == 0) {
+                i++;
+            } else {
+                vArestas = vertices.find(0).getArestas().allElements(vArestas);
 
-        while (!lista.equals(null)) {
-            Object object = lista.remove(0);
-            Aresta vArestas[];
-            vArestas = new Aresta[tamanho()];
-            vArestas = vertices.find(0).getArestas().allElements(vArestas);
-
-            for (int i = 0; i < vArestas.length && vArestas != null; i++) {
-                if (!visited[i]) {
-                    visited[i] = true;
-                    lista.add(vArestas[i]);
+                for (int j = 0; j < vArestas.length && vArestas != null; j++) {
+                    Aresta a = existeAresta(verticeAtual.getId(), i);
+                    if (!a.visitada()) {
+                        a.visitar();
+                        listaA.add(a);
+                    }
+                    vArestas = vertices.find(i).getArestas().allElements(vArestas);
                 }
-                vArestas = vertices.find(i).getArestas().allElements(vArestas);
+                verticeAtual = listaV.remove(i);
+                if(!verticeAtual.visitado()){
+                    verticeAtual.visitar();
+                }
             }
+
         }
     }
+
 
     public void bfs(int idVerticeInicio) {
 

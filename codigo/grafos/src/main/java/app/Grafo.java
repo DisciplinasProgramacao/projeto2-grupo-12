@@ -194,7 +194,7 @@ public abstract class Grafo {
                     vArestas = vertices.find(i).getArestas().allElements(vArestas);
                 }
                 verticeAtual = listaV.remove(i);
-                if(!verticeAtual.visitado()){
+                if (!verticeAtual.visitado()) {
                     verticeAtual.visitar();
                 }
             }
@@ -202,26 +202,25 @@ public abstract class Grafo {
         }
     }
 
-    
     public void bfs(int idVerticeInicio) {
 
-        boolean visited[] = new boolean[vertices.size()];
-
-        Lista lista = new Lista();
-
-        visited[idVerticeInicio] = true;
-        lista.add(idVerticeInicio);
+        Lista<Vertice> lista = new Lista<Vertice>();
+        Vertice v = vertices.find(idVerticeInicio);
+        Lista<Integer> ListaVizinhos = new Lista<Integer>();
+        Integer[] LVizinhosInt = new Integer[ListaVizinhos.size()];
+        v.visitar();
+        lista.add(v);
 
         while (!lista.equals(null)) {
-            Object object = lista.remove(0);
-
-            for (int i = 0; i < lista.size(); i++) {
-                if (!visited[i]) {
-                    visited[i] = true;
-                    lista.add(i);
+            lista.remove(v.getId());
+            ListaVizinhos = v.vizinhos();
+            LVizinhosInt = ListaVizinhos.allElements(LVizinhosInt);
+            for (int i = 0; i < v.vizinhos().size(); i++) {
+                if (!vertices.find(LVizinhosInt[i]).visitado()) {
+                    vertices.find(LVizinhosInt[i]).visitar();
+                    lista.add(vertices.find(LVizinhosInt[i]));
                 }
             }
         }
-
     }
 }

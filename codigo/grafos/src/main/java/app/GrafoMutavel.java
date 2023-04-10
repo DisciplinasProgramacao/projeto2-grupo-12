@@ -30,7 +30,7 @@ public abstract class GrafoMutavel extends Grafo {
 
     public void carregar(String nomeArquivo) {
 
-        Lista linhasArquivo = new Lista<>();
+        Lista<String> linhasArquivo = new Lista<String>();
 
         try {
             FileReader reader = new FileReader(nomeArquivo);

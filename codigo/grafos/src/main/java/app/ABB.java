@@ -1,6 +1,7 @@
 package app;
 
 import java.util.TreeMap;
+
 /** 
  * MIT License
  *
@@ -24,8 +25,6 @@ import java.util.TreeMap;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-import javax.lang.model.element.PackageElement;
 
 /**
  * Classe que encapsula uma árvore binária de buscas

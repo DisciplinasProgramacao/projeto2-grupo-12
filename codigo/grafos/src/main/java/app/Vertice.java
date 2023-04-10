@@ -132,7 +132,7 @@ public class Vertice {
     }
 
     public Lista<Integer> vizinhos() {
-        Lista<Integer> vizinhos = new Lista();
+        Lista<Integer> vizinhos = new Lista<Integer>();
         for (int i = 0; i < arestas.size(); i++) {
             Aresta aresta = arestas.find(i);
             if (aresta.destino() == id) {

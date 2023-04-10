@@ -144,7 +144,7 @@ public abstract class Grafo {
     public boolean completo() {
         int numVertices = vertices.size();
 
-        for (int i = 0; i < numVertices; i++) {
+        for (int i = 1; i < numVertices; i++) {
             if (vertices.find(i).grau() != ordem() - 1)
                 return false;
         }
@@ -202,7 +202,7 @@ public abstract class Grafo {
         }
     }
 
-
+    
     public void bfs(int idVerticeInicio) {
 
         boolean visited[] = new boolean[vertices.size()];

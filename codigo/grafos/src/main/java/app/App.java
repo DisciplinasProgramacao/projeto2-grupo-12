@@ -13,8 +13,9 @@ public final class App {
 
         GrafoCompleto g = new GrafoCompleto("Teste", 5);
 
-        String nomeArquivo = "D:\\Projetos Java\\LPM\\projeto2-grupo-12\\codigo\\grafos\\graph-test-100.txt";
-
+        System.out.println(g.completo());
+        
+        //String nomeArquivo = "D:\\Projetos Java\\LPM\\projeto2-grupo-12\\codigo\\grafos\\graph-test-100.txt";
         // g.carregar(nomeArquivo);
     }
 }

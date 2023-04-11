@@ -105,6 +105,7 @@ public class Vertice {
     }
 
     /**
+     * 
      * Calcula o grau de um vértice
      * @return Número correspondente ao grau do vértice
      */

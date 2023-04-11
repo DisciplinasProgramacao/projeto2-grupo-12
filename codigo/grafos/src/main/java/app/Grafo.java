@@ -78,6 +78,12 @@ public abstract class Grafo {
         return null;
     }
 
+    /**
+     * Verifica se determinado vértice existe
+     * 
+     * @param idVertice Inteiro referente ao id do vértice desejado
+     * @return O vértice se ele existir ou null caso contrário
+     */
     public Vertice existeVertice(int idVertice) {
         for (int i = 0; i < vertices.size(); i++) {
             Vertice vertice = vertices.find(i);
@@ -112,6 +118,13 @@ public abstract class Grafo {
 
     }
 
+    /**
+     * Adiciona aresta no grafo
+     * 
+     * @param origem  Vértice de origem
+     * @param destino Vértice de destino
+     * @return true se adicionou a aresta ou false caso contrário
+     */
     public boolean addAresta(int origem, int destino) {
         boolean adicionou = false;
         Vertice saida = this.existeVertice(origem);
@@ -127,6 +140,14 @@ public abstract class Grafo {
         return null;
     }
 
+    /**
+     * Verifica se determinada aresta existe
+     * 
+     * @param verticeA Vértice de origem
+     * @param verticeB Vértice de destino
+     * @return A aresta se a mesma existir, ou null caso contrário
+     */
+
     public Aresta existeAresta(int verticeA, int verticeB) {
         Aresta aresta = new Aresta(1, verticeB);
         Aresta vArestas[];
@@ -141,6 +162,12 @@ public abstract class Grafo {
         return null;
     }
 
+    /**
+     * Verifica se o grafo é completo
+     * 
+     * @return true se o grafo for completo ou false caso contrário
+     */
+
     public boolean completo() {
         int numVertices = vertices.size();
 
@@ -150,6 +177,13 @@ public abstract class Grafo {
         }
         return true;
     }
+
+    /**
+     * Cria um subgrafo a partir de um grafo completo
+     * 
+     * @param vertices Lista de vértices que farão parte do subgrafo
+     * @return Subgrafo criado
+     */
 
     public Grafo subGrafo(Lista<Integer> vertices) {
         Grafo subgrafo = new GrafoNaoDirecionado("Subgrafo de " + this.nome);
@@ -162,13 +196,31 @@ public abstract class Grafo {
         return subgrafo;
     }
 
+    /**
+     * Calcula o tamanho do grafo
+     * 
+     * @return Número que representa o tamanho do grafo
+     */
+
     public int tamanho() {
         return (ordem() * (ordem() - 1)) / 2;
     }
 
+    /**
+     * Calcula a ordem do grafo
+     * 
+     * @return Número que representa a ordem do grafo
+     */
+
     public int ordem() {
         return vertices.size();
     }
+
+    /**
+     * Realiza a busca por profundidade no grafo
+     * 
+     * @param idVerticeInicio Vértice do início da busca
+     */
 
     public void dfs(int idVerticeInicio) {
 
@@ -201,6 +253,12 @@ public abstract class Grafo {
 
         }
     }
+
+    /**
+     * Realiza a busca por profundidade no grafo
+     * 
+     * @param idVerticeInicio Vértice do início da busca
+     */
 
     public void bfs(int idVerticeInicio) {
 

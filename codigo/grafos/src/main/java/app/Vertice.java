@@ -104,6 +104,13 @@ public class Vertice {
         return this.arestas.remove(destino);
     }
 
+    /**
+     * 
+     * Calcula o grau de um vértice
+     * 
+     * @return Número correspondente ao grau do vértice
+     */
+
     public int grau() {
         return arestas.size();
     }
@@ -130,6 +137,12 @@ public class Vertice {
     public boolean visitado() {
         return this.visitado;
     }
+
+    /**
+     * Coloca em uma lista os vizinhos de um vértice
+     * 
+     * @return Uma lista com os vizinhos de um vértice
+     */
 
     public Lista<Integer> vizinhos() {
         Lista<Integer> vizinhos = new Lista<Integer>();
